@@ -301,7 +301,7 @@ const accountUpdateWithActiveAuthority = async (
     const op = ['account_update', updatedAuthorities];
     const transaction = await HiveTxUtils.createTx([op], {
       date: undefined,
-      minutes: 60,
+      minutes: 60 * 24,
     } as IExpiration);
 
     const opName = 'Account Update';
@@ -347,7 +347,7 @@ const twoFAConfigBroadcast = async (
         [customJsonOp, updateAccountOp],
         {
           date: undefined,
-          minutes: 60,
+          minutes: 60 * 24,
         } as IExpiration,
       );
       broadcastTransaction(transaction, username, initiator)
